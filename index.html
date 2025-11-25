@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTI Site Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Section 1 - Hero */
+        .section {
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+            scroll-snap-align: start;
+        }
+
+        .section1 {
+            background: linear-gradient(135deg, #b4f0d7 0%, #8ee4c4 100%);
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            padding: 25px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 13px;
+            color: #2d5545;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 35px;
+        }
+
+        nav a {
+            color: #2d5545;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .hero {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 80px 100px 80px;
+        }
+
+        .hero-content {
+            max-width: 550px;
+        }
+
+        h1 {
+            font-size: 62px;
+            color: #1a3d2e;
+            line-height: 1.05;
+            margin-bottom: 25px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: #2d5545;
+            margin-bottom: 45px;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            background-color: #1a3d2e;
+            color: white;
+            padding: 18px 45px;
+            border: none;
+            border-radius: 30px;
+            font-size: 15px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .globe-container {
+            width: 420px;
+            height: 420px;
+        }
+
+        .globe {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #5ba3d0 0%, #7bc96f 40%, #5ba3d0 100%);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .continent {
+            position: absolute;
+            background: #3d8a5f;
+            opacity: 0.8;
+        }
+
+        .continent1 {
+            top: 15%;
+            left: 10%;
+            width: 35%;
+            height: 28%;
+            border-radius: 45% 55% 60% 40%;
+        }
+
+        .continent2 {
+            bottom: 18%;
+            right: 8%;
+            width: 40%;
+            height: 32%;
+            border-radius: 50% 45% 55% 45%;
+        }
+
+        footer {
+            padding: 30px 80px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .pagination {
+            display: flex;
+            gap: 12px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #1a3d2e;
+            opacity: 0.25;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            opacity: 1;
+        }
+
+        /* Section 2 - Steps */
+        .section2 {
+            background: #f8faf9;
+            padding: 80px;
+        }
+
+        .steps-title {
+            text-align: center;
+            font-size: 42px;
+            color: #1a3d2e;
+            margin-bottom: 80px;
+            font-weight: 700;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step-card {
+            text-align: center;
+        }
+
+        .step-number {
+            font-size: 72px;
+            color: #b4f0d7;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .step-title {
+            font-size: 20px;
+            color: #1a3d2e;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .step-desc {
+            font-size: 14px;
+            color: #5a6f65;
+            line-height: 1.6;
+        }
+
+        /* Section 3 - Services Green */
+        .section3 {
+            background: #2d5545;
+            color: white;
+            padding: 100px 80px;
+        }
+
+        .services-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 13px;
+            letter-spacing: 2px;
+            opacity: 0.7;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 48px;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .services-text {
+            font-size: 16px;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 50px;
+            max-width: 700px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-item {
+            background: rgba(255,255,255,0.08);
+            padding: 35px;
+            border-radius: 12px;
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .service-title {
+            font-size: 18px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .service-desc {
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Section 4 - Contact Form */
+        .section4 {
+            background: linear-gradient(135deg, #b4f0d7 0%, #8ee4c4 100%);
+            padding: 100px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .contact-title {
+            font-size: 48px;
+            color: #1a3d2e;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .contact-subtitle {
+            font-size: 16px;
+            color: #2d5545;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            color: #1a3d2e;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            background: white;
+            color: #1a3d2e;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            background-color: #1a3d2e;
+            color: white;
+            padding: 18px 45px;
+            border: none;
+            border-radius: 30px;
+            font-size: 15px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+        /* Section 5 - Testimonials */
+        .section5 {
+            background: #f8faf9;
+            padding: 100px 80px;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .testimonials-title {
+            font-size: 48px;
+            color: #1a3d2e;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            color: #2d5545;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #b4f0d7 0%, #8ee4c4 100%);
+        }
+
+        .author-name {
+            font-size: 15px;
+            color: #1a3d2e;
+            font-weight: 600;
+        }
+
+        .author-role {
+            font-size: 13px;
+            color: #5a6f65;
+        }
+
+        /* Section 6 - CTA */
+        .section6 {
+            background: #2d5545;
+            padding: 120px 80px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section-title {
+            font-size: 52px;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .cta-section-text {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-white-button {
+            background-color: white;
+            color: #1a3d2e;
+            padding: 20px 50px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Section 7 - Footer */
+        .section7 {
+            background: #1a3d2e;
+            padding: 80px;
+            color: white;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+        }
+
+        .footer-about {
+            max-width: 300px;
+        }
+
+        .footer-logo {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-desc {
+            font-size: 14px;
+            line-height: 1.7;
+            opacity: 0.8;
+        }
+
+        .footer-section-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 50px auto 0;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            text-align: center;
+            font-size: 13px;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Section 1: Hero -->
+    <section class="section section1">
+        <header>
+            <div class="logo">CTI Financial Services</div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Financial Clarity<br>You Can Trust</h1>
+                <p class="subtitle">Navigate your financial journey with confidence and expert guidance every step of the way</p>
+                <button class="cta-button">Get Started Today</button>
+            </div>
+            <div class="globe-container">
+                <div class="globe">
+                    <div class="continent continent1"></div>
+                    <div class="continent continent2"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="pagination">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </footer>
+    </section>
+
+    <!-- Section 2: Steps -->
+    <section class="section section2">
+        <h2 class="steps-title">How It Works</h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3 class="step-title">A simple onboarding</h3>
+                <p class="step-desc">Complete our straightforward application process and get started in minutes with personalized financial guidance</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3 class="step-title">Understand your options</h3>
+                <p class="step-desc">Receive clear explanations of all available financial solutions tailored to your unique situation and goals</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Get your cash</h3>
+                <p class="step-desc">Access your funds quickly and securely, with transparent terms and ongoing support from our expert team</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Services -->
+    <section class="section section3">
+        <div class="services-content">
+            <div class="section-label">OUR SERVICES</div>
+            <h2>Comprehensive Financial Solutions</h2>
+            <p class="services-text">We provide a full range of financial services designed to help you achieve your goals. From investment planning to wealth management, our expert team is here to guide you every step of the way.</p>
+            
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-icon"></div>
+                    <h3 class="service-title">Investment Planning</h3>
+                    <p class="service-desc">Strategic portfolio management tailored to your risk tolerance and financial objectives</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon"></div>
+                    <h3 class="service-title">Wealth Management</h3>
+                    <p class="service-desc">Comprehensive strategies to grow and protect your assets for long-term success</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon"></div>
+                    <h3 class="service-title">Retirement Planning</h3>
+                    <p class="service-desc">Secure your future with customized retirement solutions and expert guidance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Contact -->
+    <section class="section section4">
+        <div class="contact-container">
+            <h2 class="contact-title">Get in Touch</h2>
+            <p class="contact-subtitle">Ready to take control of your financial future? Reach out to our team and let's start the conversation.</p>
+            
+            <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" placeholder="John Smith">
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="john@example.com">
+            </div>
+            <div class="form-group">
+                <label>Message</label>
+                <textarea placeholder="Tell us about your financial goals..."></textarea>
+            </div>
+            <button class="submit-button">Send Message</button>
+        </div>
+    </section>
+
+    <!-- Section 5: Testimonials -->
+    <section class="section section5">
+        <div class="testimonials-header">
+            <h2 class="testimonials-title">What Our Clients Say</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"CTI Financial Services transformed how I think about my investments. Their personalized approach and expert guidance helped me achieve financial goals I never thought possible."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div>
+                        <div class="author-name">Sarah Mitchell</div>
+                        <div class="author-role">Business Owner</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"The team's dedication to understanding my unique situation made all the difference. I feel confident and secure about my financial future thanks to their expertise."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div>
+                        <div class="author-name">Michael Chen</div>
+                        <div class="author-role">Entrepreneur</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: CTA -->
+    <section class="section section6">
+        <h2 class="cta-section-title">Ready to Get Started?</h2>
+        <p class="cta-section-text">Join thousands of satisfied clients who trust us with their financial future. Let's build your path to financial clarity together.</p>
+        <button class="cta-white-button">Schedule Consultation</button>
+    </section>
+
+    <!-- Section 7: Footer -->
+    <section class="section section7">
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">CTI Financial Services</div>
+                <p class="footer-desc">Providing trusted financial guidance and solutions to help you achieve your dreams and secure your future.</p>
+            </div>
+            <div>
+                <h3 class="footer-section-title">Company</h3>
+                <div class="footer-links">
+                    <a href="#">About Us</a>
+                    <a href="#">Our Team</a>
+                    <a href="#">Careers</a>
+                    <a href="#">News</a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-section-title">Services</h3>
+                <div class="footer-links">
+                    <a href="#">Investment</a>
+                    <a href="#">Wealth Management</a>
+                    <a href="#">Retirement</a>
+                    <a href="#">Tax Planning</a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-section-title">Support</h3>
+                <div class="footer-links">
+                    <a href="#">Contact Us</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 CTI Financial Services. All rights reserved.
+        </div>
+    </section>
+</body>
+</html>
